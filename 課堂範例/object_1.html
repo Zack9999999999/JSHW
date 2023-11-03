@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Object 簡介</title>
+<style>
+  h2 { color:deepPink}
+</style>
+</head>
+
+<body>
+
+<h2> new Object()</h2>
+<script>  
+function apply(money) {  //this會參考到呼叫此函式的物件
+    if( money <= 10000) {
+			document.write(this.ename, "申請費用", money , ", 通過<br>") ;
+    }else{
+    	document.write(this.ename, "申請費用", money , ", 超過10000元，不通過<br>") ;
+    }
+}
+var emp = new Object();
+emp.empno = 7001;
+emp.ename = "Adam";
+emp.apply = apply;
+document.write("代號 : " , emp.empno , "<br>");
+document.write("姓名 : " , emp.ename , "<br>");
+emp.apply(2000);
+</script>
+
+
+<h2>Object literals</h2>
+<script> 	
+var emp = {
+	empno:7002,
+	ename:"Ann",
+	apply:apply
+}
+document.write("代號 : " , emp.empno , "<br>");
+document.write("姓名 : " , emp.ename , "<br>");
+emp.apply(12000);
+</script>
+
+
+<h2>Object literals------2</h2>
+<script> 
+//將變數內容打包進物件中
+var empno = 7003; //empno = document.getElementById("empno").value
+var ename = "Alice";
+var emp = {
+	empno:empno,
+	ename:ename,
+	apply:apply
+}
+document.write("代號 : " , emp.empno , "<br>");
+document.write("姓名 : " , emp.ename , "<br>");
+emp.apply(6000);
+</script>
+
+
+<h2>Object literals------3</h2>
+<script> 
+//ES6提供簡化的字面值撰寫方法(short notation)。
+var empno = 7003; //empno = document.getElementById("empno").value
+var ename = "Alice";
+var emp = {
+	empno,
+	ename,
+	apply
+}
+document.write("代號 : " , emp.empno , "<br>");
+document.write("姓名 : " , emp.ename , "<br>");
+emp.apply(6000);
+//---------------
+//var emp4 = {empno:7004, ename:"John"}
+//document.write("代號 : " , emp4.empno , "<br>");
+//document.write("姓名 : " , emp4.ename , "<br>");
+//emp4.apply(6); //error
+</script>
+
+
+<!--
+<h2>------------在函式中將要回傳的資料們放入一個陣列中回傳</h2>
+<script>
+function getFileInfo(fileStr) {
+	//fileStr：檔案名稱字串
+	//回傳一個陣列
+	//將主檔名放在陣列索引值0的位置
+	//將副檔名放在陣列索引值1的位置
+	let fileName, fileExt;
+
+
+}
+
+var fileStr = "Sara.smile.gif";
+var file = getFileInfo(fileStr);
+
+document.write("fileStr : ", fileStr, "<br>");
+document.write("fileName : ", ??????, "<br>");
+document.write("fileExt : ", ??????, "<br>");
+</script>
+
+
+<h2>------------在函式中將要回傳的資料們放入一個物件中回傳</h2>
+<script>
+function getFileInfo (fileStr) {
+	//fileStr：檔案名稱字串
+	//回傳一個物件
+	//將主檔名放在物件的name屬性
+	//將副檔名放在物件的ext屬性
+	let name, ext;
+
+}
+
+var fileStr = "Sara.smile.docx";
+var file = getFileInfo(fileStr);
+
+document.write("fileStr : ", fileStr, "<br>");
+document.write("fileName : ", ??????, "<br>");
+document.write("fileExt : ", ??????, "<br>");
+</script>
+--> 
+</body>
+</html>

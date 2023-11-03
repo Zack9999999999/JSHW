@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>Examples</title>
+	<style>
+		h2 {
+			color: deeppink;
+		}
+	</style>
+</head>
+
+<body>
+	<h2>使用sort()</h2>
+	<script>
+		var arr = [40, 20, 50, 70, 30, 80, 7];
+		arr.sort();
+		document.write(arr, "<br>");	
+	</script>
+
+
+	<h2>自己排</h2>
+	<script>
+		var arr = [40, 20, 50, 70, 30, 80, 7];
+
+		for (let x = 0; x < arr.length - 1; x++) {
+			for (let y = x + 1; y <= arr.length - 1; y++) {
+				if (arr[x] > arr[y]) {
+					let temp = arr[x];
+					arr[x] = arr[y];
+					arr[y] = temp;
+				}
+			}
+		}
+
+		document.write(arr, "<br>");
+	</script>
+
+
+	<h2>使用sort() 搭配compare function-----從小排到大</h2>
+	<script>
+		function compareAsc(a, b) { //從小排到大 , a:40, b:20
+			return a - b; //40-20=20 ====> 20, 40
+		}
+
+		var arr = [40, 20, 50, 70, 30, 80, 7];
+
+		arr.sort(compareAsc); //compareAsc被稱為callback function
+
+		document.write(arr, "<br>");
+	</script>
+
+
+	<h2>使用sort() 搭配compare function-----從大排到小</h2>
+	<script>
+		function compareDesc(a, b) { //從大排到小 , a:40, b:20
+			return b - a; //20-40=-20 ====> 40, 20
+		}
+
+		var arr = [40, 20, 50, 70, 30, 80, 7];
+		arr.sort(compareDesc);
+
+		document.write(arr, "<br>");	
+	</script>
+
+
+	<h2>字串比大小</h2>
+	<script>
+		var str = "This"; // new String()
+		document.write("str.length : ", str.length, "<br>");
+
+
+		var sentences = [
+			"No cross,no crown.",
+			"Sometime ever, sometime never.",
+			"You don’t have time to be timid.",
+			"Treat yourself well.",
+			"No fear of words, no fear of years.",
+			"Don’t let the past steal your present.",
+			"Be cheerful and hopeful."
+		];
+
+		sentences.sort();
+
+		//輸出所有的sentence
+		for (let data of sentences) {
+			document.write(data, "<br>");
+		}
+
+	</script>
+
+
+	<h2>字串比大小_________句子短的放前面</h2>
+	<script>
+
+		var sentences = [
+			"No cross,no crown.",
+			"Sometime ever, sometime never.",
+			"You don’t have time to be timid.",
+			"Treat yourself well.",
+			"No fear of words, no fear of years.",
+			"Don’t let the past steal your present.",
+			"Be cheerful and hopeful."
+		];
+
+		function myCompareFunc(str1, str2) {
+			return str1.length - str2.length;
+		}
+
+		//使用sort()搭配比較函式
+		sentences.sort(myCompareFunc);
+
+		//輸出所有的sentence
+		for (let sentence of sentences) {
+			document.write(sentence, "<br>");
+		}
+	</script>
+
+
+	<h2>函式物件可以當作資料傳入函式</h2>
+	<script>
+		function doubleFunc(data, i) {
+			document.write(i, " : ", data * 2, "<br>");
+		}
+
+		var arr = [10, 20, 30];
+		//Array的forEach()
+		arr.forEach(doubleFunc);
+
+	</script>
+
+	<h2>函式物件可以當作資料傳入函式2-Array.map()</h2>
+	
+	<script>
+
+		function sqrt(data) {
+			return Math.sqrt(data);
+		}
+
+		var arr = [4, 16, 25];
+
+		var arr2 = arr.map(sqrt);
+
+		document.write(arr,"<br>");
+		document.write(arr2,"<br>");
+
+	</script>
+
+	<h2>函式物件可以當作資料傳入函式3-Array.filter()</h2>
+	
+	<script>
+
+		function lowprice(data) {
+			return data < 300;
+		}
+
+		var arr = [40, 126, 250, 333, 421];
+
+		var arr2 = arr.filter(lowprice);
+
+		document.write(arr,"<br>");
+		document.write(arr2, "<br>");
+
+	</script>
+
+<h2>函式物件可以當作資料傳入函式3-Array.find()</h2>
+	
+<script>
+
+	function aPrice(data) {
+		return data === 300;
+	}
+
+	var arr = [40, 300, 250, 333, 421];
+
+	var arr2 = arr.find(aPrice);
+
+	document.write(arr,"<br>");
+	document.write(arr2, "<br>");
+
+</script>
+
+</body>
+
+</html>

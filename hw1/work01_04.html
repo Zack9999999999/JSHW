@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <p style="color: blue;">第一題</p>
+    <p>摸彩金 : 有11顆彩球, 彩球面額為0-10之間, 若摸到的彩球不為0,則可繼續摸彩,
+        若摸到的彩球為0,則停止摸彩,並計算其摸彩次數及彩金總金額(單位:佰元)
+    </p>
+    <script>
+        let count = 0; //摸彩次數
+        let sum = 0; //彩金總金額
+        let number; //彩球面額
+
+        do {
+            number = Math.floor((Math.random() * 11));
+            count++;
+            sum += number;
+            document.write(`第${count}次, 彩球金額: ${number * 100}<br>`);
+        } while (number !== 0);
+        document.write(`摸彩總金額: ${sum}`);
+
+
+    </script>
+
+    <p style="color: blue;">第二題</p>
+    <p>請寫一段JavaScript的程式,在網頁上隨機產生6個不重覆的大樂透數字(介於1..49之間的數字)</p>
+    <script>
+
+        var arr = [];
+        for (let x = 0; x < 6; x++) {
+            do {
+                var a = Math.floor((Math.random() * 49)) + 1;
+            } while (arr.includes(a));
+            arr[x] = a;
+
+            document.write(`<span style= "font-weight:bold;">${arr[x]}</span>` + " " + "<br>");
+        }
+
+        //================================================================================= 
+        
+        var arr2 = [];
+        var y = 0;
+
+        while (y < 6) {
+            var a = Math.floor((Math.random() * 49)) + 1;
+            
+            if (arr2.indexOf(a) === -1) {
+                arr2[y] = a;
+                document.write(`<span style= "font-weight:bold;">${arr2[y]}</span>` + " ");
+                y++;
+            }
+        }
+
+
+    </script>
+
+    <p style="color: blue;">第三題</p>
+    <p>請寫一個rand(min,max)函數,可以傳入min與max的整數,並回傳一個介於min和max間的整數值 (大於等於min,小於等於max)
+        (Math, 函式練習)
+    </p>
+    <script>
+
+        function rand(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+        document.write(`<button style="background:#f99;">${rand(20, 100)}</button>`);
+
+    </script>
+
+    <p style="color: blue;">第四題</p>
+    <p>請寫一段JavaScript的程式,在網頁上隨機產生4~7個介於0..9之間不同顏色的數字(CSS,Math練習)
+    </p>
+    <script>
+        var ran = Math.floor(Math.random() * 4); // 0~3
+
+        for (let i = ran; ran < 7; ran++) {
+
+            var nu = Math.floor(Math.random() * 10);
+
+            var gb1 = Math.floor(Math.random() * 256);
+            var gb2 = Math.floor(Math.random() * 256);
+            var gb3 = Math.floor(Math.random() * 256);
+
+            document.write(`<span style = "color:rgb(${gb1}, ${gb2}, ${gb3});">${nu}</span>` + " ");
+        }
+
+
+
+    </script>
+
+</body>
+
+</html>

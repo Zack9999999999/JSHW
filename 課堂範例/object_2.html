@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Object 簡介</title>
+<style>
+  h2 { color:deepPink}
+</style>
+</head>
+
+<body>
+
+<script>  
+function apply(money) {  //this會參考到呼叫此函式的物件
+    if( money <= 10000) {
+			document.write(this.ename, "申請費用", money , ", 通過<br>") ;
+    }else{
+    	document.write(this.ename, "申請費用", money , ", 超過10000元，不通過<br>") ;
+    }
+}
+</script>
+
+
+<h2>Object literals------3</h2>
+<script> 
+//ES6提供簡化的字面值撰寫方法(short notation)。
+var empno = 7003; //empno = document.getElementById("empno").value
+var ename = "Alice";
+var emp = {
+	empno,
+	ename,
+	apply
+}
+document.write("代號 : " , emp.empno , "<br>");
+document.write("姓名 : " , emp.ename , "<br>");
+emp.apply(6000);
+
+//---------------
+//var emp4 = {empno:7004, ename:"John"}
+//document.write("代號 : " , emp4.empno , "<br>");
+//document.write("姓名 : " , emp4.ename , "<br>");
+//emp4.apply(6); //error
+</script>
+<!-- 
+
+<h2>---------------- Employee()當作一般函式</h2> 
+<script>
+	
+function Employee(empno, ename) {//此為建構函式
+	this.empno = empno;
+	this.ename = ename;
+}
+Employee(1, "大雄");//當作一般函式來呼叫時，會參考到window物件
+document.write("代號 : " , window.empno , "<br>");
+document.write("姓名 : " , window.ename , "<br>");
+</script>
+
+
+<h2>----------------具名函式.call(物件, 參數列......)</h2>
+<script>
+var aBoy = {}
+Employee.call(aBoy, 2, "花輪");
+document.write("代號 : " , aBoy.empno , "<br>");
+document.write("姓名 : " , aBoy.ename , "<br>");
+</script>
+
+
+<h2>---------------- new 建構函式名稱()</h2>
+<script> 	
+function Employee (empno, ename) {//此為建構函式
+	this.empno = empno;
+	this.ename = ename;
+	this.apply = function (money) {  //this會參考到呼叫此函式的物件
+		if( money <= 10000) {
+				document.write(this.ename, "申請費用", money , ", 通過<br>") ;
+		}else{
+			document.write(this.ename, "申請費用", money , ", 超過10000元，不通過<br>") ;
+		}
+	}
+}
+//使用new Employee()方法產生的物件,自動擁有prototype中的功能 
+//??????
+
+var emp4 = new Employee(7004, "John");
+emp4.apply(300);
+
+var emp5 = new Employee(7005, "Mary");
+emp5.apply(5000);
+</script> 
+
+--> 
+</body>
+</html>

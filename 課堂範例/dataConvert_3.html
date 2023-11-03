@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Examples</title>
+<style>
+	h2{
+		color:deeppink;
+	}
+</style>
+</head>
+
+<body>
+
+<h2>使用單元運算子+ 來轉成數值</h2>
+<script>
+	var price = "100";
+	document.write( "typeof price : ", typeof price, "<br>");  //string
+	document.write( "typeof +price : ", typeof +price, "<br>");//number
+</script>
+
+
+<h2>單元運算!, 使用!! 來轉成布林值-----1</h2>
+<script>
+	//------------結論, 可以使用 !!來將字串轉成布林值
+	var errMsg = "email未填"; 
+	document.write( "typeof errMsg : ", typeof errMsg, "<br>"); //string
+	err = !!errMsg; //可以使用!!來轉成布林值
+	document.write( "typeof !!err : ", typeof err, "<br>");
+</script>
+<!--
+ -->
+</body>
+</html>

@@ -1,0 +1,112 @@
+zoom 
+472-656-6706  
+6706
+
+https://docs.google.com/spreadsheets/d/1Z9NTVlEEdPjIcwzGeVVjPqb-I5Db8b_HzHWuh6z97yk/edit?usp=sharing
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-------------
+js可以寫在哪裡?
+
+資料型別有哪些?
+
+型別轉換
+   .轉整數
+   .轉小數
+   .轉number型別  +price
+   .轉boolean型別 !!data
+   .falsy成員
+
+算術運算、比較運算、邏輯運算、位元運算......
+
+=、 ==、 ===
+
+流程控制
+if, switch, for, while, dowhile
+
+switch() //嚴格的相等比較
+
+輸出到表格中
+-------------------------------
+建立一維陣列的方法,
+1. new Array
+2. literals
+
+取得陣列長度
+
+使用迴圈技巧查訪資料
+  for(let i=0; i<陣列.length....)
+  for(let i in arr)
+  for(let data of arr)
+
+陣列的方法, 屬性
+
+函式
+
+BOM, window, navigator, document, location, console, ...
+
+找到元素物件的參考(單一, 類陣列)
+
+取得或設定元素的內容
+
+取得或設定元素的外觀
+
+事件驅動的程式設計模式
+
+事件機制 : ?事件, ?物件, ?要做什麼
+
+事件物件: target, currentTarget, preventDefault(), stopPropagation();
+
+案例1.同購買者
+案例2.加入最愛
+案例3.key event
+案例4.mouse event==>事件物件
+
+//------------------
+string
+
+date
+
+DOM_tree
+
+HTMLCollection, NodeList
+
+ReqExp
+
+select物件
+
+表單元素....
+
+物件
+
+解構給值

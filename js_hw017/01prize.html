@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    
+    <p>摸彩金 : 有11顆彩球, 彩球面額為0-10之間, 若摸到的彩球不為0,則可繼續摸彩,若摸到的彩球為0,則停止摸彩,並計算其摸彩次數及彩金總金額(單位:佰元)</p>
+    <hr>
+    <div id="con"></div>
+    <hr>
+    <button onclick="抽獎囉()">開始抽獎</button>
+
+    <script>
+        //         @@@@@@@@@ 01prize.html
+        //  (迴圈, Math, 運算, 輸出…練習)  
+        // 摸彩金 : 有11顆彩球, 彩球面額為0-10之間, 若摸到的彩球不為0,則可繼續摸彩,若摸到的彩球為0,則停止摸彩,並計算其摸彩次數及彩金總金額(單位:佰元)
+        
+        function 抽獎囉() {
+            let ifPlay = false;
+            const balls = [];
+            let prize = 0;
+            let count = 1;
+
+            if(ifPlay) {
+                alert("已经抽過獎了，網頁將重新整理。");
+                location.reload();
+                return;
+            }
+            ifPlay = true; 
+        
+            let randNum;
+            do {
+                randNum = Math.floor(Math.random() * (10));
+                balls.push(randNum);
+                balls[randNum] = document.createElement("p");
+                if (randNum === 0){
+                    
+                    balls[randNum].innerText = `第${count}次抽獎數字為: ${randNum}。 Game Over~`;
+                    balls[randNum].style.color = 'red';
+                }else{
+                    balls[randNum].innerText = `第${count}次抽獎數字為: ${randNum}。`;
+                }
+                document.body.append(balls[randNum]);
+                prize += 100;
+                count++;
+            } while (randNum !== 0);
+
+            let TotalPrize = document.createElement('p');
+            TotalPrize.innerText = `您抽了${count - 1}次 ; 總共獲得了: ${prize}元!`;
+            con.appendChild(TotalPrize);
+
+        }
+    </script>
+
+</body>
+
+</html>

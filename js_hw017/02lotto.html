@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>抽抽樂</title>
+</head>
+
+<body>
+    <p>請寫一段JavaScript的程式, 在網頁上隨機產生6個不重覆的大樂透數字(介於1..49之間的數字)</p>
+    <hr>
+    <button onclick="抽獎囉()">抽獎囉</button>
+    <hr>
+    <script>
+
+        // @@@@@@@@@ 02lotto.html(Math，迴圈練習，陣列)
+        // 請寫一段JavaScript的程式, 在網頁上隨機產生6個不重覆的大樂透數字(介於1..49之間的數字)
+
+
+        let NumArr = [];
+        let isPlay = false;
+        function 抽獎囉() {
+            if (isPlay){
+                alert("你已經抽過了，網頁將重新整理^^。")
+                location.reload();
+                return;
+            }else{
+                isPlay = true;
+            }
+            
+            let count = 6;
+
+
+            NumArr = [];
+
+            for (let i = 0; i < count; i++) {
+                let randNum;
+                do {
+                    randNum = Math.floor(Math.random() * 49);
+                } while (NumArr.includes(randNum));
+
+                NumArr.push(randNum);
+            }
+
+
+
+            for (let i = 0; i < NumArr.length; i++) {
+                let 中獎數 = document.createElement("p");
+                中獎數.innerText = NumArr[i];
+                document.body.append(中獎數);
+            }
+
+
+        }
+    </script>
+</body>
+
+</html>

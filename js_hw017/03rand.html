@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>請寫一個rand(min,max)函數,可以傳入min與max的整數,並回傳一個介於min和max間的整數值 (大於等於min,小於等於max)
+        (Math, 函式練習)</p>
+    <hr>
+    <button onclick="隨機囉()">rand (</button>
+    <input type="text" id="maxInput" placeholder="請輸入最大的整數">
+    <input type="text" id="minInput" placeholder="請輸入最小的整數"> );
+
+    <!-- 請寫一個rand(min,max)函數,可以傳入min與max的整數,並回傳一個介於min和max間的整數值 (大於等於min,小於等於max)
+        (Math, 函式練習)
+     -->
+
+
+    <script>
+        let count = 1;
+        function 隨機囉() {
+            const maxInput = document.getElementById('maxInput');
+            const minInput = document.getElementById('minInput');
+
+            if (minInput.value >= maxInput.value) {
+                alert("你不知道最小數不能比最大數還大嗎= =");
+            } else if (minInput.value === maxInput.value) {
+                alert("你不知道最小數不能等於大數嗎? 你叫我怎麼比= =");
+            } else {
+                let Num = Math.floor(Math.random() * (maxInput.value - minInput.value + 1) + minInput.value);
+
+                const avgOutputP = document.createElement('p');
+                avgOutputP.innerText = `第${count}次隨便計算|我是${maxInput.value}~${minInput.value}之間的隨機整數答案: ${Num}`;
+                document.body.append(avgOutputP);
+                count++;
+                if (count > 12){
+                    alert("因為你太愛玩了，把網頁都洗滿了，於是我要重開網頁了88。");
+                    location.reload();
+                }
+            }
+        }
+
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Examples</title>
+<style>
+	h1, .products, #topOne, div img
+</style>
+</head>
+<body>
+<h2>具名函式</h2>	
+<script>
+sayHi();
+function sayHi(){ //============function statement, 有hoist的現象
+	document.write(  "Hi~<br>");
+}
+
+</script>   
+
+<h2>匿名函式(anonymous function)</h2>
+<script> 
+//一開始的sayHello:undefined
+//sayHello(); //error, undefined型別無法執行函式的呼叫
+var sayHello = function () { //函式物件在此才建立
+	document.write(  "Hello~<br>");
+}
+sayHello();//函式物件已建立, 所以可以被呼叫
+</script> 
+<!-- -->
+</body>
+</html>

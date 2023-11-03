@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Examples</title>
+<style>
+	h2{
+		color:deeppink;
+	}
+</style>
+</head>
+<body>
+
+<h2>switch句型</h2>
+<script>
+	var lowType = 2;  //?????? //lowType : 2
+	var amount;  //amount:
+
+	switch(lowType){ //採用的是嚴格的相等比較, 型、值必需都一樣
+		case "1":
+			amount = 5000;
+			break;
+		case "2":
+			amount = 3000;
+			break;
+		case "3":
+			amount = 1000;
+			break;
+		default:
+			amount = 0;
+	}
+
+	document.write( "補助款 : ", amount, "<br>");
+</script>  
+
+<!-- 
+<h2>練習: 印出mm當月有幾天</h2>
+<script>
+	let mm = 1;
+	let days;
+	switch(mm){
+		case 1:	case 3:	case 5:	case 7:	case 8:	case 10: case 12:		
+			days = 31;
+			break;
+		case 2:
+			days = 28;
+			break;
+		case 4:	case 6:	case 9:	case 11:
+			days = 30;
+			break;
+		default : 
+			document.write( `${mm2}為無效的月份`);
+	}
+	document.write( `${mm}月有${days}天<br>`);
+
+</script>
+
+
+<h2>練習: 印出mm當月有幾天____2</h2>
+<script>
+	let mm2 = 8.5 ;
+	let days2 = 31;
+
+	if (mm2 < 1 || mm2 > 12 || (mm2 !== parseInt(mm2))) {
+		document.write( `${mm2}為無效的月份`);
+	} else {
+
+			switch (mm2) {
+				case 2:
+					days2 = 28;
+					break;
+				case 4:	case 6:	case 9:	case 11:
+					days2 = 30;
+					break;
+			}
+		document.write( `${mm2}月有${days2}天<br>`);
+	}
+</script>
+--> 
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>Examples</title>
+	<style>
+		h2 {
+			color: deeppink;
+		}
+
+		td {
+			width: 30px;
+			text-align: center;
+		}
+	</style>
+</head>
+
+<body>
+	<h2>句型</h2>
+	<script>
+		for (var i = 1; i <= 3; i++) {
+			document.write("I love JavaScript~<br>");
+		}
+	</script>
+
+
+	<h2>for敍述的 var</h2>
+	<script>
+		for (var ii = 1; ii <= 9; ii++) {  //for敍述的var宣告,不是區塊作用域在迴圈外仍可使用
+			document.write(ii, "、");
+		}
+		document.write(ii, "<br>");
+	</script>
+
+
+	<h2>for敍述的 let</h2>
+	<script>
+		for (let iii = 1; iii <= 9; iii++) {  //for敍述的 let 宣告, 只能在迴圈中使用
+			document.write(iii, "、");
+		}
+		//document.write( iii, "<br>"); //此行會error
+	</script>
+
+
+	<h2>for敍述的 let--------案例2 </h2>
+	<script>
+		var sum = 0;//0+100+100
+		for (let x = 1; x <= 10; x++) {  //for敍述中的 let 宣告 x :2
+			//let x = 100; //{}區塊中的 let 宣告 x :100
+			sum += x;
+		}
+		document.write("sum : ", sum, "<br>");
+	</script>
+
+
+	<h2>練習印出表格--------1欄------1</h2>
+	<script>
+		document.write("<table border = '1'>");
+		for (let x = 1; x <= 10; x++) {
+			// document.write("<tr><td>", x, "</td></tr>");
+			document.write(`<tr><td>${x}</td></tr>`);
+		}
+		document.write("<table>");
+
+	</script>
+
+	<h2>練習印出表格--------2欄------2</h2>
+	<script>
+		let html = "<table border = '1' cellspacing = '0'>";
+		for (let i = 1; i <= 10; i += 2) {
+			html += `<tr><td>${i}</td><td>${i + 1}</td></tr>`;
+		}
+		html += "</table>";
+		document.write(html);
+	</script>
+
+
+
+</body>
+
+</html>

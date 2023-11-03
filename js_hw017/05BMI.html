@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            text-align: center;
+            /* line-height: 100vh; */
+        }
+
+        .bluep {
+            color: blue;
+        }
+
+        .orangeP {
+            color: orange;
+        }
+
+        .purpleP {
+            color: purple;
+        }
+
+        #BMIInpuut {
+            background-color: rgb(208, 233, 239);
+        }
+    </style>
+</head>
+
+<body>
+    <p>BMI值計算</p>
+    <div class="container">
+
+        <hr>
+
+        <p>BMI計算公式: BMI = 體重(公斤) /身高的平方(公尺)</p>
+        <p>例如一位52公斤的人，身高是155公分，則BMI為:</p>
+        <p class="bluep">52(公斤)/1.55(的平方/公尺)=21.6</p>
+        <p class="orangeP">正常BMI範圍為 BMI=18.5 ~ 24</p>
+        <hr>
+        <p class="purpleP">快來看看自己的BMI是否符合範圍吧</p>
+        <p>身高<input type="text" id="heightInput"><button id="StartCalBTN" onclick="CalBMI()" >開始計算</button></p>
+        <p>cm</p>
+
+        <p>體重<input type="text" id="weightInput"><button id="ClearInputBTN">清除重填</button></p>
+        <p>kg</p>
+
+
+        <p>您的BMI為:</p>
+        <input type="text" id="BMIOutput">
+        <p id="IwillSay">系統評語:</p>
+    </div>
+
+    <script>
+        // Button Event
+        const StartCalBTN = document.getElementById("StartCalBTN");
+        const ClearInputBTN = document.getElementById("ClearInputBTN");
+        // Input Event
+        const heightInput = document.getElementById("heightInput");
+        const weightInput = document.getElementById("weightInput");
+        // Output Event
+        const BMIOutput = document.getElementById("BMIOutput");
+        const IwillSay = document.getElementById("IwillSay");
+        Init()
+        function Init(){
+            heightInput.placeholder = "請輸入身高(公尺/m)";
+            weightInput.placeholder = "請輸入體重(公斤/kg)";
+            BMIOutput.placeholder = "這裡會顯示您的體重(BMI)";
+            // checkInputValue();
+        }
+        // heightInput.addEventListener("change",function(e){
+        //     checkInputValue();
+        // });
+
+        function checkInputValue(){
+            if (heightInput === " "){
+                StartCalBTN.disabled = false;
+            }else{
+                StartCalBTN.disabled = true;
+            }
+        }
+
+        function CalBMI() {
+            BMIOutput.value = (weightInput.value / (heightInput.value ** 2)).toFixed(1);
+            
+            if (BMIOutput.value < 18.5) {
+                console.log("體重過輕");
+                BMIOutput.innerText = `體重過輕`;
+                IwillSay.innerText = `系統評語:體重過輕`;
+
+            } else if (BMIOutput.value > 18.5 && BMIOutput.value < 24) {
+                console.log("體重正常");
+                BMIOutput.innerText = `體重正常`;
+                IwillSay.innerText = `系統評語:體重正常`;
+            } else if (BMIOutput.value >= 24 && BMIOutput.value < 27) {
+                console.log("體重過重");
+                BMIOutput.innerText = `體重過重`;
+                IwillSay.innerText = `系統評語:體重過重`;
+            } else if (BMIOutput.value >= 27 && BMIOutput.value < 30) {
+                console.log("輕度肥胖");
+                BMIOutput.innerText = `輕度肥胖`;
+                IwillSay.innerText = `系統評語:輕度肥胖`;
+            } else if (BMIOutput.value >= 30 && BMIOutput.value < 35) {
+                console.log("中度肥胖");
+                BMIOutput.innerText = `中度肥胖`;
+                IwillSay.innerText = `系統評語:中度肥胖`;
+            } else if (BMIOutput.value <= 35) {
+                console.log("重度肥胖");
+                BMIOutput.innerText = `重度肥胖`;
+                IwillSay.innerText = `系統評語:重度肥胖`;
+            }
+
+                 
+
+        }
+        //分級	身體質量指數
+        // 體重過輕
+        // 正常範圍	18.5 ≦ BMI ＜24
+        // 過重	24 ≦ BMI ＜ 27
+        // 輕度肥胖	27 ≦ BMI ＜ 30
+        // 中度肥胖	30 ≦ BMI ＜ 35
+        // 重度肥胖	BMI ≧ 35
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="keyword" content="HTML,CSS,Javascript">
+<title>Examples</title>
+
+<style>
+	h2 {
+		color:deeppink;
+	}
+</style>
+
+</head>
+
+<body>
+<h2>從前</h2>
+<script>
+	var name = 'Ann';
+	var hiredate = "1986-03-15";
+	var salary = 55500;	
+	var html = '<table border="1" cellspacing="0">';
+	html += '<tr><th>姓名</th><td>' + name + '</td></tr>';
+	html += '<tr><th>薪資</th><td>' + hiredate + '</td></tr>';
+	html += '<tr><th>到職日</th><td>' + salary + '</td></tr>';
+	html +=  '</table>';
+	document.write( html);	
+</script>
+
+<script>
+	var name = 'Alice';
+	var hiredate = "1986-03-15";
+	var salary = 50000;	
+	var html = `<table border="1" cellspacing="0">;
+					<tr><th>姓名</th><td> ${name} </td></tr>;
+					<tr><th>薪資</th><td> ${hiredate} </td></tr>;
+					<tr><th>到職日</th><td> ${salary} </td></tr>;
+				</table>`;
+	document.write( html);	
+</script>
+
+<!---->
+<h2>template</h2>
+<script>
+//反引號中可以使用${}內放入變數或運算式或呼叫函式	
+//字串可寫成多行	
+var name = "Alice";
+var hiredate = "1986-03-15";
+var salary = 50000;
+var html = `<table border='1' cellspacing="0">
+				<tr><th>姓名</th><td>??????</td></tr>
+				<tr><th>薪資</th><td>??????</td></tr>
+				<tr><th>到職日</th><td>??????</td></tr>
+			</table>`;
+document.write(html); 
+
+//注意:單引號和雙引號没有套印的功能
+var name = "Adam";
+var html2 = "<h2>${name}的快樂天空</h2>"; 
+document.write(  html2, "<br>");
+</script>
+--> 
+
+</body>
+</html>
